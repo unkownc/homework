@@ -1,4 +1,8 @@
 this is a.txt
+<<<<<<< HEAD
+set a success
+=======
 set a success
 set a2 success
 set a3 success
+>>>>>>> parent of b1289ee... Revert "set a3 success"
