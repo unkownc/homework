@@ -3,7 +3,7 @@ this is a.txt
 set a success
 set a2 success
 set a3 success
-Zhou LongFei Is a fooler
+set a4 success
 =======
 <<<<<<< HEAD
 this is test-a.txt
