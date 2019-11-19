@@ -25,6 +25,7 @@ set b success
 set c success
 set d success
 
-set d success
 
 set 1234567
+
+set bbbccc
