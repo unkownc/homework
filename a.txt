@@ -21,6 +21,10 @@ set a success
 >>>>>>> parent of 28e04dd... set all
 >>>>>>> master
 
+set a 
+set b 
+set c
+
 set b success
 set c success
 set d success
