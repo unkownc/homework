@@ -20,3 +20,5 @@ set a6 success
 set a success
 >>>>>>> parent of 28e04dd... set all
 >>>>>>> master
+
+set c success
