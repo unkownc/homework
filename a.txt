@@ -22,3 +22,5 @@ set a success
 >>>>>>> master
 
 set b success
+
+set d success
