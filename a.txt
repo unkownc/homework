@@ -25,10 +25,6 @@ set b success
 set c success
 set d success
 
-set d success
+set  acasd success
 
-set b2 s
-set c2 s
-set d2 s
-
-set 1234567
+set aaaaaaaaaaa
