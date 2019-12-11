@@ -1,34 +1,26 @@
 this is a.txt
-<<<<<<< HEAD
+
 this is test-a.txt
-<<<<<<< HEAD
+
 set a success
-=======
+
 set a success
 set a2 success
 set a3 success
->>>>>>> parent of b1289ee... Revert "set a3 success"
-=======
-<<<<<<< HEAD
+
 set a success
 set a2 success
 set a3 success
 set a4 success
 set a5 success
 set a6 success
-=======
-set a success
->>>>>>> parent of 28e04dd... set all
->>>>>>> master
 
+set a success
 set b success
 set c success
 set d success
 
-<<<<<<< HEAD
 set bbbbbbbb
-=======
 set  acasd success
->>>>>>> refs/heads/cjp-1
 
 set aaaaaaaaaaa
