@@ -21,19 +21,8 @@ set a success
 >>>>>>> parent of 28e04dd... set all
 >>>>>>> master
 
-set a 
-set b 
-set c
-
 set b success
 set c success
 set d success
 
-
-set b2 s
-set c2 s
-set d2 s
-
-set 1234567
-
-set bbbccc
+set aaaaaaaaaaa
