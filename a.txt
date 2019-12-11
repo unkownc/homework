@@ -25,6 +25,10 @@ set b success
 set c success
 set d success
 
+<<<<<<< HEAD
 set bbbbbbbb
+=======
+set  acasd success
+>>>>>>> refs/heads/cjp-1
 
 set aaaaaaaaaaa
