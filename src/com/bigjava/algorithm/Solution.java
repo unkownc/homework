@@ -1,12 +1,38 @@
 package com.bigjava.algorithm;
 
+import java.util.Stack;
+
 public class Solution {
 
 	public static void main(String[] args) {
 		Solution solution = new Solution();
-		System.out.println(1534236469);
-		System.out.println(solution.reverse2(1534236469));
+		System.out.println(solution.isPalindrome(1221));
+	}
 
+	/**
+	 * »ØÎÄÊı
+	 * 
+	 * @param x
+	 * @return
+	 */
+	public boolean isPalindrome(int x) {
+		if (x < 0)
+			return false;
+
+		boolean flag = true;
+
+		String strx = String.valueOf(x);
+
+		char[] chars = strx.toCharArray();
+
+		for (int i = 0; i < chars.length / 2; i++) {
+			if (chars[i] != chars[chars.length - 1 - i]) {
+				flag = false;
+				break;
+			}
+		}
+
+		return flag;
 	}
 
 	/**
