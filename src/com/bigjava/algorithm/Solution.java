@@ -6,7 +6,33 @@ public class Solution {
 
 	public static void main(String[] args) {
 		Solution solution = new Solution();
-		System.out.println(solution.isPalindrome(1221));
+
+		String aString = "A man, a plan, a canal: Panama";
+
+		System.out.println(solution.isPalindrome(aString));
+	}
+
+	/**
+	 * 验证回文串
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public boolean isPalindrome(String s) {
+		if (s == null) {
+			return false;
+		}
+		s = s.replaceAll(" |[^a-zA-Z0-9]", "").toLowerCase();
+
+		char[] chars = s.toCharArray();
+
+		for (int i = 0; i < chars.length / 2; i++) {
+			if (chars[i] != chars[chars.length - 1 - i]) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**
