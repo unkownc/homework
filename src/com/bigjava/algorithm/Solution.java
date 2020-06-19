@@ -8,8 +8,27 @@ public class Solution {
 		Solution solution = new Solution();
 
 		String aString = "A man, a plan, a canal: Panama";
+		int[] a = solution.runningSum(new int[] { 1, 2, 3 });
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(a[i]);
+		}
+		System.out.println();
+	}
 
-		System.out.println(solution.isPalindrome(aString));
+	/**
+	 * 一维数组的动态和
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public int[] runningSum(int[] nums) {
+		int[] numbers = new int[nums.length];
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+			numbers[i] = sum;
+		}
+		return numbers;
 	}
 
 	/**
