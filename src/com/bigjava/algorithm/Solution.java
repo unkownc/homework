@@ -1,5 +1,6 @@
 package com.bigjava.algorithm;
 
+import java.math.BigInteger;
 import java.util.Stack;
 
 public class Solution {
@@ -7,12 +8,67 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 
-		String aString = "A man, a plan, a canal: Panama";
-		int[] a = solution.runningSum(new int[] { 1, 2, 3 });
-		for (int i = 0; i < a.length; i++) {
-			System.out.println(a[i]);
+		System.out.println(Integer.toBinaryString(12) + "");
+
+		String a = "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101";
+		String b = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
+
+		
+		for (int i = 0; i < a.length(); i++) {
+			System.out.println();
 		}
-		System.out.println();
+		
+		System.out.println(solution.addBinary(a, b));
+
+	}
+
+	/**
+	 * 数字转二进制
+	 * 
+	 * @return
+	 */
+	public String toBinaryString(BigInteger num) {
+		String binary = "";
+		BigInteger number = new BigInteger("2");
+		while (!num.equals(new BigInteger("0"))) {
+			binary += num.remainder(number);
+			num = num.divide(number);
+		}
+
+		String binary2 = "";
+		for (int i = binary.length(); i > 0; i--) {
+			binary2 += binary.charAt(i - 1);
+		}
+		return binary2;
+	}
+
+	/**
+	 * 二进制转数字
+	 * 
+	 * @param binaryStr
+	 * @return
+	 */
+	public BigInteger binaryToInteger(String binaryStr) {
+		BigInteger num = new BigInteger("0");
+		BigInteger j = new BigInteger("1");
+		for (int i = 1; i <= binaryStr.length(); i++, j = j.multiply(new BigInteger("2"))) {
+			if ('0' != binaryStr.charAt(binaryStr.length() - i)) {
+				num = num.add(j);
+			}
+		}
+		return num;
+	}
+
+	/**
+	 * 二进制求和
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public String addBinary(String a, String b) {
+		String binary = toBinaryString(binaryToInteger(a).add(binaryToInteger(b)));
+		return "".equals(binary) ? "0" : binary;
 	}
 
 	/**
