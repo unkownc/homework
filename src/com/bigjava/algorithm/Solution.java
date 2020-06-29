@@ -1,6 +1,8 @@
 package com.bigjava.algorithm;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class Solution {
@@ -8,18 +10,36 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 
-		System.out.println(Integer.toBinaryString(12) + "");
+		int[] a = {12,1,12 };
+		int b = 10;
 
-		String a = "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101";
-		String b = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
+		System.out.println(solution.kidsWithCandies(a, b));
 
-		
-		for (int i = 0; i < a.length(); i++) {
-			System.out.println();
+	}
+
+	/**
+	 * 拥有最多糖果的孩子
+	 * 
+	 * @param candies
+	 * @param extraCandies
+	 * @return
+	 */
+	public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+		List<Boolean> flags = new ArrayList<>();
+
+		int maxNum = 0;
+
+		for (int i = 0; i < candies.length; i++) {
+			if (candies[i] > maxNum) {
+				maxNum = candies[i];
+			}
 		}
-		
-		System.out.println(solution.addBinary(a, b));
 
+		for (int i = 0; i < candies.length; i++) {
+			flags.add((candies[i] + extraCandies) >= maxNum);
+		}
+
+		return flags;
 	}
 
 	/**
