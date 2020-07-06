@@ -10,11 +10,41 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 
-		int[] a = {12,1,12 };
-		int b = 10;
+		int[] nums = { 1, 3, 5, 1, 2, 4 };
+		int a = solution.xorOperation(1, 7);
+		System.out.println(a);
+	}
 
-		System.out.println(solution.kidsWithCandies(a, b));
+	/**
+	 * 1486. 数组异或操作
+	 * 
+	 * @param n
+	 * @param start
+	 * @return
+	 */
+	public int xorOperation(int n, int start) {
+		int num = 0;
+		for (int i = 0; i < n; i++) {
+			num ^= start + 2 * i;
+		}
+		return num;
+	}
 
+	/**
+	 * 1470. 重新排列数组
+	 * 
+	 * @param nums
+	 * @param n
+	 * @return
+	 */
+	public int[] shuffle(int[] nums, int n) {
+		int[] nums2 = new int[nums.length];
+		int numIndex = 0;
+		for (int i = 0; i < n; i++) {
+			nums2[numIndex++] = nums[i];
+			nums2[numIndex++] = nums[n + i];
+		}
+		return nums2;
 	}
 
 	/**
@@ -195,15 +225,9 @@ public class Solution {
 		String strx = String.valueOf(x < 0 ? -x : x);
 
 		long num = 0;
-
+		// 11123>>>32111
 		for (int i = strx.length() - 1; i >= 0; i--) {
-
-			long n = 1;
-			for (int j = 0; j < i; j++) {
-				n *= 10;
-			}
-			num += (x % 10) * n;
-
+			num = num * 10 + (x % 10);
 			x = x / 10;
 		}
 
@@ -212,6 +236,26 @@ public class Solution {
 		}
 
 		return x < 0 ? -Integer.valueOf(num + "") : Integer.valueOf(num + "");
+	}
+
+	/**
+	 * 整数反转
+	 * 
+	 * @param x
+	 * @return
+	 */
+	public int reverse3(int x) {
+
+		long num = 0;
+
+		while (x != 0) {
+
+			num = num * 10 + (x % 10);
+			x = x / 10;
+
+		}
+
+		return (int) num == num ? (int) num : 0;
 	}
 
 }
