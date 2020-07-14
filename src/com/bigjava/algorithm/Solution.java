@@ -112,15 +112,11 @@ public class Solution {
 	 * @return
 	 */
 	public String defangIPaddr(String address) {
-		String newAddress = "";
+		StringBuffer newAddress = new StringBuffer();
 		for (int i = 0; i < address.length(); i++) {
-			if (".".equals(address.charAt(i) + "")) {
-				newAddress += "[.]";
-			} else {
-				newAddress += address.charAt(i);
-			}
+			newAddress.append('.' == address.charAt(i) ? "[.]" : address.charAt(i));
 		}
-		return newAddress;
+		return newAddress.toString();
 	}
 
 	/**
@@ -198,15 +194,11 @@ public class Solution {
 
 	public String reverseLeftWords2(String s, int n) {
 		char[] str = s.toCharArray();
-		String newStr = "";
+		StringBuffer newStr = new StringBuffer();
 		for (int i = 0, j = 0; i < str.length; i++) {
-			if ((n + i) >= str.length) {// 左旋转数字加i大于拆分长度
-				newStr += str[j++];// 尾部开始加前面的
-			} else {
-				newStr += str[n + i];// 先添加后面的字符串
-			}
+			newStr.append((n + i) >= str.length ? str[j++] : str[n + i]);// 尾部开始加前面的
 		}
-		return newStr;
+		return newStr.toString();
 	}
 
 	/**
