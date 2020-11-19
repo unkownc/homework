@@ -2,14 +2,44 @@ package com.bigjava.algorithm;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Solution {
 
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 
-		System.out.println(solution.minCount(new int[] { 2, 3, 10 }));
+		solution.moveZeroes(new int[] { 0, 1, 0, 3, 12 });
+	}
+
+	/**
+	 * 移动零
+	 * 
+	 * @param nums
+	 */
+	public void moveZeroes(int[] nums) {
+
+		//不是0的下标+1，并且赋值
+		int newIndex = 0;
+		//计算0次数
+		int zeroCount = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 0)
+				nums[newIndex++] = nums[i];
+			else
+				zeroCount++;
+		}
+		//根据0的次数末尾赋值0
+		for (int i = 1; i <= zeroCount; i++) {
+			nums[nums.length - i] = 0;
+		}
+
 	}
 
 	public int minCount(int[] coins) {
