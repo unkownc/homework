@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,19 +16,98 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 
-		solution.moveZeroes(new int[] { 0, 1, 0, 3, 12 });
+		System.out.println(solution.addDigits(119));
 	}
 
 	/**
-	 * 移动零
+	 * leetcode - 258. 各位相加
+	 * 
+	 * 两个for O(n^2)
+	 * 
+	 * @param num
+	 * @return
+	 */
+	public int addDigits(int num) {
+
+		/**
+		 * return (num - 1) % 9 + 1; 时间复杂度 O(1),空间复杂度O(1)
+		 */
+
+		// 总合
+		int sum = 0;
+
+		// 时间复杂度为O(1)
+		while (num != 0) { // num 为 0 跳出对应的循环
+
+			sum += num % 10;// 获取对应数字的余数 - 123 -> 3，然后使用sum对对应余数进行相加
+			num /= 10;// 加完之后减去对应尾数 123 -> 12
+
+			if (num == 0 && sum >= 10) {
+				num = sum;
+				sum = 0;
+			}
+
+		}
+
+		return sum;
+	}
+
+	/**
+	 * leetcode - 13. 罗马数字转整数
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public int romanToInt(String s) {
+		HashMap<String, Integer> nums = new HashMap<>();
+		nums.put("I", 1);
+		nums.put("IV", 4);
+		nums.put("V", 5);
+		nums.put("IX", 9);
+		nums.put("X", 10);
+		nums.put("XL", 40);
+		nums.put("L", 50);
+		nums.put("XC", 90);
+		nums.put("C", 100);
+		nums.put("CD", 400);
+		nums.put("D", 500);
+		nums.put("CM", 900);
+		nums.put("M", 1000);
+
+		int sum = 0;
+
+		int numIndex = 0;
+		for (int i = 0; i < s.length(); i++) {
+
+			if (numIndex < s.length()) {
+				String s2 = s.substring(numIndex, numIndex + 2);
+				if (nums.get(s2) != null) {
+					sum += nums.get(s2);
+					System.out.println("numIndex:" + numIndex + " s2:" + s2 + ":" + nums.get(s2));
+					numIndex += 2;
+				} else {
+					sum += nums.get(s.charAt(numIndex) + "");
+					System.out.println("numIndex:" + numIndex + " s:" + s.charAt(numIndex) + ":"
+							+ nums.get(s.charAt(numIndex) + ""));
+					numIndex++;
+				}
+
+			}
+		}
+
+		return sum;
+	}
+
+	/**
+	 * leetcode - 283. 移动零算法
 	 * 
 	 * @param nums
 	 */
 	public void moveZeroes(int[] nums) {
 
-		//不是0的下标+1，并且赋值
+		// 不是0的下标+1，并且赋值
 		int newIndex = 0;
-		//计算0次数
+		// 计算0次数
 		int zeroCount = 0;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] != 0)
@@ -35,7 +115,7 @@ public class Solution {
 			else
 				zeroCount++;
 		}
-		//根据0的次数末尾赋值0
+		// 根据0的次数末尾赋值0
 		for (int i = 1; i <= zeroCount; i++) {
 			nums[nums.length - i] = 0;
 		}
