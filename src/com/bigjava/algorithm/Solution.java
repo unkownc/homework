@@ -15,8 +15,24 @@ public class Solution {
 
 	public static void main(String[] args) {
 		Solution solution = new Solution();
+		int[] a = { -4, -1, -2, -3, 3 };
+		System.out.println(solution.maximumProduct(a));
+	}
 
-		System.out.println(solution.addDigits(119));
+	/**
+	 * 628. 三个数的最大乘积
+	 * 
+	 * 	三个数-> 只能有两个负数一个正数/全为正整数
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public int maximumProduct(int[] nums) {
+		// 对数组进行排序
+		Arrays.sort(nums);
+
+		return Math.max(nums[0] * nums[1] * nums[nums.length - 1],
+				nums[nums.length - 1] * nums[nums.length - 2] * nums[nums.length - 3]);
 	}
 
 	/**
