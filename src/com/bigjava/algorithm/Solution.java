@@ -6,8 +6,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,14 +17,45 @@ public class Solution {
 
 	public static void main(String[] args) {
 		Solution solution = new Solution();
-		int[] a = { -4, -1, -2, -3, 3 };
-		System.out.println(solution.maximumProduct(a));
+		System.out.println(solution.isHappy(19));
+	}
+
+	/**
+	 * 202. 快乐数
+	 * 
+	 * @param n
+	 * @return
+	 */
+	public boolean isHappy(int n) {
+
+		int sum = 0;
+
+		while (n != 0) {
+
+			int num = n % 10;
+			sum += num * num;
+			n /= 10;
+
+			if (n == 0 && sum > 1) {
+
+				if (sum == 4 || sum == 16 || sum == 37 || sum == 58 || sum == 89 || sum == 145 || sum == 42
+						|| sum == 20)
+					return false;
+
+				n = sum;
+				sum = 0;
+
+			}
+
+		}
+
+		return sum == 1;
 	}
 
 	/**
 	 * 628. 三个数的最大乘积
 	 * 
-	 * 	三个数-> 只能有两个负数一个正数/全为正整数
+	 * 三个数-> 只能有两个负数一个正数/全为正整数
 	 * 
 	 * @param nums
 	 * @return
