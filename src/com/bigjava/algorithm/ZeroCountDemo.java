@@ -1,18 +1,78 @@
 package com.bigjava.algorithm;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ZeroCountDemo {
 
 	public static void main(String[] args) {
+
+		 int[] numbers = { 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1 };
+		//int[] numbers = { 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0 };
+		 int k = 2;
+		//int k = 3;
 		
-		int[] numbers = { 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1 };
-		int[] numbers2 = { 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0 };
-		int k = 2;
-		int k2 = 3;
-		
-		System.out.println(repalceNumber(numbers, k));
-		System.out.println(repalceNumber(numbers2, k2));
+		System.out.println(maxZero(numbers, k));
+
+	}
+	
+	/**
+	 * 求0最大
+	 * 
+	 * @param numbers
+	 * @param k
+	 * @return
+	 */
+	public static int maxZero(int[] numbers, int k) {
+		int resetCount = 0;
+		int zeroCount = 0;
+		int maxZeroCount = 0;
+		// 计算下标位置
+		List<Integer> noZeroIndex = new ArrayList<>();
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] != 0)
+				noZeroIndex.add(i);
+		}
+		for (int i = 0; i < noZeroIndex.size(); i++) {
+			int rightIdx = noZeroIndex.get(i);
+			int leftIdx = noZeroIndex.get(i);
+			// 右根据k来进行判断
+			while (rightIdx != numbers.length) {
+				int rightIdx2 = rightIdx + 1;
+				int rightNum = numbers[rightIdx++];
+				if (rightNum == 0)
+					zeroCount++;
+				if (rightNum != 0) {
+					if (k > 0) {
+						zeroCount++;
+						k--;
+						resetCount++;
+					}
+					if (k == 0) {
+						if (rightIdx2 != numbers.length && numbers[rightIdx2] == 0) {
+							continue;
+						}
+						// 重置k
+						k = resetCount;
+						resetCount = 0;
+						break;
+					}
+				}
+			}
+			// 左，需要判断左边是否有0
+			while (leftIdx != 0) {
+				leftIdx--;
+				int leftNum = numbers[leftIdx];
+				if (leftNum != 0)
+					break;
+				zeroCount++;
+			}
+			// 最大值比较
+			maxZeroCount = zeroCount > maxZeroCount ? zeroCount : maxZeroCount;
+			zeroCount = 0;
+		}
+		return maxZeroCount;
 	}
 
 	/**
