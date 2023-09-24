@@ -21,7 +21,7 @@ public class Solution {
 	}
 
 	/**
-	 * 202. ¿ìÀÖÊı
+	 * 202. å¿«ä¹æ•°
 	 * 
 	 * @param n
 	 * @return
@@ -53,15 +53,15 @@ public class Solution {
 	}
 
 	/**
-	 * 628. Èı¸öÊıµÄ×î´ó³Ë»ı
+	 * 628. ä¸‰ä¸ªæ•°çš„æœ€å¤§ä¹˜ç§¯
 	 * 
-	 * Èı¸öÊı-> Ö»ÄÜÓĞÁ½¸ö¸ºÊıÒ»¸öÕıÊı/È«ÎªÕıÕûÊı
+	 * ä¸‰ä¸ªæ•°-> åªèƒ½æœ‰ä¸¤ä¸ªè´Ÿæ•°ä¸€ä¸ªæ­£æ•°/å…¨ä¸ºæ­£æ•´æ•°
 	 * 
 	 * @param nums
 	 * @return
 	 */
 	public int maximumProduct(int[] nums) {
-		// ¶ÔÊı×é½øĞĞÅÅĞò
+		// å¯¹æ•°ç»„è¿›è¡Œæ’åº
 		Arrays.sort(nums);
 
 		return Math.max(nums[0] * nums[1] * nums[nums.length - 1],
@@ -69,9 +69,9 @@ public class Solution {
 	}
 
 	/**
-	 * leetcode - 258. ¸÷Î»Ïà¼Ó
+	 * leetcode - 258. å„ä½ç›¸åŠ 
 	 * 
-	 * Á½¸öfor O(n^2)
+	 * ä¸¤ä¸ªfor O(n^2)
 	 * 
 	 * @param num
 	 * @return
@@ -79,17 +79,17 @@ public class Solution {
 	public int addDigits(int num) {
 
 		/**
-		 * return (num - 1) % 9 + 1; Ê±¼ä¸´ÔÓ¶È O(1),¿Õ¼ä¸´ÔÓ¶ÈO(1)
+		 * return (num - 1) % 9 + 1; æ—¶é—´å¤æ‚åº¦ O(1),ç©ºé—´å¤æ‚åº¦O(1)
 		 */
 
-		// ×ÜºÏ
+		// æ€»åˆ
 		int sum = 0;
 
-		// Ê±¼ä¸´ÔÓ¶ÈÎªO(1)
-		while (num != 0) { // num Îª 0 Ìø³ö¶ÔÓ¦µÄÑ­»·
+		// æ—¶é—´å¤æ‚åº¦ä¸ºO(1)
+		while (num != 0) { // num ä¸º 0 è·³å‡ºå¯¹åº”çš„å¾ªç¯
 
-			sum += num % 10;// »ñÈ¡¶ÔÓ¦Êı×ÖµÄÓàÊı - 123 -> 3£¬È»ºóÊ¹ÓÃsum¶Ô¶ÔÓ¦ÓàÊı½øĞĞÏà¼Ó
-			num /= 10;// ¼ÓÍêÖ®ºó¼õÈ¥¶ÔÓ¦Î²Êı 123 -> 12
+			sum += num % 10;// è·å–å¯¹åº”æ•°å­—çš„ä½™æ•° - 123 -> 3ï¼Œç„¶åä½¿ç”¨sumå¯¹å¯¹åº”ä½™æ•°è¿›è¡Œç›¸åŠ 
+			num /= 10;// åŠ å®Œä¹‹åå‡å»å¯¹åº”å°¾æ•° 123 -> 12
 
 			if (num == 0 && sum >= 10) {
 				num = sum;
@@ -102,7 +102,7 @@ public class Solution {
 	}
 
 	/**
-	 * leetcode - 13. ÂŞÂíÊı×Ö×ªÕûÊı
+	 * leetcode - 13. ç½—é©¬æ•°å­—è½¬æ•´æ•°
 	 * 
 	 * @param s
 	 * @return
@@ -148,15 +148,15 @@ public class Solution {
 	}
 
 	/**
-	 * leetcode - 283. ÒÆ¶¯ÁãËã·¨
+	 * leetcode - 283. ç§»åŠ¨é›¶ç®—æ³•
 	 * 
 	 * @param nums
 	 */
 	public void moveZeroes(int[] nums) {
 
-		// ²»ÊÇ0µÄÏÂ±ê+1£¬²¢ÇÒ¸³Öµ
+		// ä¸æ˜¯0çš„ä¸‹æ ‡+1ï¼Œå¹¶ä¸”èµ‹å€¼
 		int newIndex = 0;
-		// ¼ÆËã0´ÎÊı
+		// è®¡ç®—0æ¬¡æ•°
 		int zeroCount = 0;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] != 0)
@@ -164,7 +164,7 @@ public class Solution {
 			else
 				zeroCount++;
 		}
-		// ¸ù¾İ0µÄ´ÎÊıÄ©Î²¸³Öµ0
+		// æ ¹æ®0çš„æ¬¡æ•°æœ«å°¾èµ‹å€¼0
 		for (int i = 1; i <= zeroCount; i++) {
 			nums[nums.length - i] = 0;
 		}
@@ -182,7 +182,7 @@ public class Solution {
 	}
 
 	/**
-	 * ½£Ö¸ Offer 05. Ìæ»»¿Õ¸ñ
+	 * å‰‘æŒ‡ Offer 05. æ›¿æ¢ç©ºæ ¼
 	 * 
 	 * @param s
 	 * @return
@@ -196,7 +196,7 @@ public class Solution {
 	}
 
 	/**
-	 * 1389. °´¼È¶¨Ë³Ğò´´½¨Ä¿±êÊı×é
+	 * 1389. æŒ‰æ—¢å®šé¡ºåºåˆ›å»ºç›®æ ‡æ•°ç»„
 	 * 
 	 * @param nums
 	 * @param index
@@ -224,7 +224,7 @@ public class Solution {
 	}
 
 	/**
-	 * 1512. ºÃÊı¶ÔµÄÊıÄ¿
+	 * 1512. å¥½æ•°å¯¹çš„æ•°ç›®
 	 * 
 	 * @param nums
 	 * @return
@@ -244,7 +244,7 @@ public class Solution {
 	}
 
 	/**
-	 * 1342. ½«Êı×Ö±ä³É 0 µÄ²Ù×÷´ÎÊı
+	 * 1342. å°†æ•°å­—å˜æˆ 0 çš„æ“ä½œæ¬¡æ•°
 	 * 
 	 * @param num
 	 * @return
@@ -265,7 +265,7 @@ public class Solution {
 	}
 
 	/**
-	 * 1108. IP µØÖ·ÎŞĞ§»¯
+	 * 1108. IP åœ°å€æ— æ•ˆåŒ–
 	 * 
 	 * @param address
 	 * @return
@@ -279,7 +279,7 @@ public class Solution {
 	}
 
 	/**
-	 * 1281. ÕûÊıµÄ¸÷Î»»ıºÍÖ®²î
+	 * 1281. æ•´æ•°çš„å„ä½ç§¯å’Œä¹‹å·®
 	 * 
 	 * @param n
 	 * @return
@@ -299,7 +299,7 @@ public class Solution {
 	}
 
 	/**
-	 * 771. ±¦Ê¯ÓëÊ¯Í·
+	 * 771. å®çŸ³ä¸çŸ³å¤´
 	 * 
 	 * @param J
 	 * @param S
@@ -323,7 +323,7 @@ public class Solution {
 	}
 
 	/**
-	 * LCP 01. ²ÂÊı×Ö
+	 * LCP 01. çŒœæ•°å­—
 	 * 
 	 * @param guess
 	 * @param answer
@@ -341,7 +341,7 @@ public class Solution {
 	}
 
 	/**
-	 * ½£Ö¸ Offer 58 - II. ×óĞı×ª×Ö·û´®
+	 * å‰‘æŒ‡ Offer 58 - II. å·¦æ—‹è½¬å­—ç¬¦ä¸²
 	 * 
 	 * @param s
 	 * @param n
@@ -355,13 +355,13 @@ public class Solution {
 		char[] str = s.toCharArray();
 		StringBuffer newStr = new StringBuffer();
 		for (int i = 0, j = 0; i < str.length; i++) {
-			newStr.append((n + i) >= str.length ? str[j++] : str[n + i]);// Î²²¿¿ªÊ¼¼ÓÇ°ÃæµÄ
+			newStr.append((n + i) >= str.length ? str[j++] : str[n + i]);// å°¾éƒ¨å¼€å§‹åŠ å‰é¢çš„
 		}
 		return newStr.toString();
 	}
 
 	/**
-	 * 1486. Êı×éÒì»ò²Ù×÷
+	 * 1486. æ•°ç»„å¼‚æˆ–æ“ä½œ
 	 * 
 	 * @param n
 	 * @param start
@@ -376,7 +376,7 @@ public class Solution {
 	}
 
 	/**
-	 * 1470. ÖØĞÂÅÅÁĞÊı×é
+	 * 1470. é‡æ–°æ’åˆ—æ•°ç»„
 	 * 
 	 * @param nums
 	 * @param n
@@ -393,7 +393,7 @@ public class Solution {
 	}
 
 	/**
-	 * ÓµÓĞ×î¶àÌÇ¹ûµÄº¢×Ó
+	 * æ‹¥æœ‰æœ€å¤šç³–æœçš„å­©å­
 	 * 
 	 * @param candies
 	 * @param extraCandies
@@ -418,7 +418,7 @@ public class Solution {
 	}
 
 	/**
-	 * Êı×Ö×ª¶ş½øÖÆ
+	 * æ•°å­—è½¬äºŒè¿›åˆ¶
 	 * 
 	 * @return
 	 */
@@ -438,7 +438,7 @@ public class Solution {
 	}
 
 	/**
-	 * ¶ş½øÖÆ×ªÊı×Ö
+	 * äºŒè¿›åˆ¶è½¬æ•°å­—
 	 * 
 	 * @param binaryStr
 	 * @return
@@ -455,7 +455,7 @@ public class Solution {
 	}
 
 	/**
-	 * ¶ş½øÖÆÇóºÍ
+	 * äºŒè¿›åˆ¶æ±‚å’Œ
 	 * 
 	 * @param a
 	 * @param b
@@ -467,7 +467,7 @@ public class Solution {
 	}
 
 	/**
-	 * Ò»Î¬Êı×éµÄ¶¯Ì¬ºÍ
+	 * ä¸€ç»´æ•°ç»„çš„åŠ¨æ€å’Œ
 	 * 
 	 * @param nums
 	 * @return
@@ -483,7 +483,7 @@ public class Solution {
 	}
 
 	/**
-	 * ÑéÖ¤»ØÎÄ´®
+	 * éªŒè¯å›æ–‡ä¸²
 	 * 
 	 * @param s
 	 * @return
@@ -506,7 +506,7 @@ public class Solution {
 	}
 
 	/**
-	 * »ØÎÄÊı
+	 * å›æ–‡æ•°
 	 * 
 	 * @param x
 	 * @return
@@ -532,7 +532,7 @@ public class Solution {
 	}
 
 	/**
-	 * ÕûÊı·´×ª
+	 * æ•´æ•°åè½¬
 	 * 
 	 * @param x
 	 * @return
@@ -584,7 +584,7 @@ public class Solution {
 	}
 
 	/**
-	 * ÕûÊı·´×ª
+	 * æ•´æ•°åè½¬
 	 * 
 	 * @param x
 	 * @return
